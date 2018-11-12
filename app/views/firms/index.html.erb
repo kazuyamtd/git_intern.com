@@ -1,0 +1,21 @@
+<div class="boxd">
+    <%= form_tag('/firms', method: :get) do %>
+        <div class="searchd">
+            <input class="searcha" name="keyword" placeholder="企業名で検索" type="text" value="">
+            <button class="searchb" title="検索" type="submit"><i class="searchc"></i></button>
+        </div>    
+    <% end %>
+</div>
+<div class="boxc">
+    <% @firms.each do |firm| %>
+        <div class="boxb">
+            <%= firm.name %><br>
+            <% if firm.reviews.present? %>
+                <div class="star-ratings-sprite"><span style="width: <%= firm.reviews.average(:rate).round %>%" class="star-ratings-sprite-rating"></span></div>
+            <% else %>
+        　　　　<div class="indexreview">評価しよう！</div>
+      　　　　<% end %>
+                <div class="detail"><%= link_to '詳細', "/firms/#{firm.id}", method: :get %><br></div>
+        </div>
+    <% end %>
+</div>

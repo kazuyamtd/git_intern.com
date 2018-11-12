@@ -1,0 +1,16 @@
+<div class="boxd">
+    <%= form_tag('/firms', method: :get) do %>
+        <div class="searchd">
+            <input class="searcha" name="keyword" placeholder="業界で検索" type="text" value="">
+            <button class="searchb" title="検索" type="submit"><i class="searchc"></i></button>
+        </div>    
+    <% end %>
+</div>
+<div class="boxc">
+    <% @genres.each do |genre| %>
+        <div class="boxb">
+            <%= genre.name %><br>
+            <div class="detail"><br></div>
+        </div>
+    <% end %>
+</div>

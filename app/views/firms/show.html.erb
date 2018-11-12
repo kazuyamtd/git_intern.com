@@ -1,0 +1,24 @@
+<div class="boxe">
+ <div class="boxa"> 
+   <h3><%= @firm.name %></h1><br>
+   <h4>オススメ度</h4>
+      <% if @firm.reviews.present? %>
+        <div class="star-ratings-sprite"><span style="width: <%= @firm.reviews.average(:rate).round %>%" class="star-ratings-sprite-rating"></span></div>
+      <% else %>
+        <h5>レビューなし</h5>
+      <% end %>
+      <h4>業種：<%= @firm.industry %></h4><br>
+      <%= @firm.description %><br>
+   <a href="/firms/<%= @firm.id %>/reviews/new", class="reviewintern">インターンを評価する</a><br>
+ </div>
+  <% @firm.reviews.each do |review| %>
+    <div class="boxf"> 
+      <h4>オススメ度</h4><br>
+      <div class="star-ratings-sprite"><span style="width: <%= review.rate %>%" class="star-ratings-sprite-rating"></span></div>
+      <h4>選考について</h4><br>
+      <%= review.test %><br>
+      <h4>インターンの内容と感想</h4><br>
+      <%= review.review %><br>
+    </div>
+  <% end %>
+</div>

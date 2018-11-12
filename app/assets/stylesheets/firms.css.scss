@@ -1,0 +1,48 @@
+.boxb{
+    margin: 15px;
+    height: 125px;
+    width: 336px;
+    border: 1px solid #000000;
+    background-color: #eeeeee;
+    padding: 25px;
+    float: left;
+}
+.boxc{
+    height: 1500px;
+    width: 1254px;
+    margin: auto;
+    margin-top: 30px;
+}
+.boxd{
+    border: 5px;
+    height: 250px;
+    margin: auto;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 10px;
+    background-image: url("http://blog-imgs-44.fc2.com/m/a/n/mangahaikei/201204220631140d8.jpg");
+    background-size:contain;
+}
+.searcha{
+    height: 40px;
+    width: 500px;
+}
+.searchb{
+    height: 46px;
+    width: 80px;
+}
+.searchd{
+    height: 40px;
+    width: 600px;
+    padding-top: 40px;
+    display: flex;
+    margin: auto;
+}
+.detail{
+    float: right;
+    position:relative; top: 30px;
+}
+.indexreview{
+    float: left;
+    margin-right: 100px;
+}

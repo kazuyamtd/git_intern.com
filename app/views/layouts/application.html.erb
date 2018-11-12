@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>InternCom</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <span class="title"><a href="/">インターン.com</a></span>
+      <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'post' %>
+      <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      <% end %>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="/firms/search">業界で探す</a></li>
+    <li>インターンを見つける</li>
+    <li>お問い合わせ</li>
+  </ul>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
