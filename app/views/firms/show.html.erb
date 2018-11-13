@@ -10,6 +10,7 @@
       <h4>業種：<%= @firm.industry %></h4><br>
       <%= @firm.description %><br>
    <a href="/firms/<%= @firm.id %>/reviews/new", class="reviewintern">インターンを評価する</a><br>
+   <a href="/firms/<%= @firm.id %>/jobs", class="reviewintern">インターンを探す</a><br>
  </div>
   <% @firm.reviews.each do |review| %>
     <div class="boxf"> 

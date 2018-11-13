@@ -1,0 +1,26 @@
+<div class="boxe">
+ <div class="boxa"> 
+   <h3><%= @firm.name %></h1><br>
+   <h4>オススメ度</h4>
+      <% if @firm.reviews.present? %>
+        <div class="star-ratings-sprite"><span style="width: <%= @firm.reviews.average(:rate).round %>%" class="star-ratings-sprite-rating"></span></div>
+      <% else %>
+        <h5>レビューなし</h5>
+      <% end %>
+      <h4>業種：<%= @firm.industry %></h4><br>
+      <%= @firm.description %><br>
+ </div>
+  <% @firm.jobs.each do |job| %>
+    <div class="boxf"> 
+      <h4><%= job.target %></h4>
+      <h4><%= job.kind %></h4>
+      <h4><%= job.place %></h4><br>
+      <h4>期間</h4><br>
+      <h4><%= job.period %></h4><br>
+      <h4>概要</h4>
+      <h4><%= job.explanation %></h4><br>
+      <h4>選考締切</h4><br>
+      <h4><%= job.deadline %></h4><br>
+    </div>
+  <% end %>
+</div>
