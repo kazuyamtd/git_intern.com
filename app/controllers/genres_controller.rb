@@ -6,7 +6,6 @@ class GenresController < ApplicationController
     
     def show
         @genre = Genre.find(params[:id])
-        @firms = Firm.all
     end
     
 end

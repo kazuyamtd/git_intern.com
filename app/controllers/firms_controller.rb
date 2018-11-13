@@ -1,7 +1,7 @@
 class FirmsController < ApplicationController
     
     def index
-      @firms = Firm.order('id ASC').limit(15).where('name LIKE(?)', "%#{params[:keyword]}%")
+      @firms = Firm.order('id ASC').page(params[:page]).per(15).where('name LIKE(?)', "%#{params[:keyword]}%")
     end
     
     def show

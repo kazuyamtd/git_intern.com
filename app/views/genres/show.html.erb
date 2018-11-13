@@ -1,6 +1,16 @@
 <div class="genre_show_up">
     <%= @genre.name %>
 </div>
-<!--<% @genre.@firms.each do |firm| %>-->
-<!--<%= firm.name %>-->
-        
+<div class="boxc">
+    <% @genre.firms.each do |firm| %>
+        <div class="boxb">
+            <%= firm.name %><br>
+            <% if firm.reviews.present? %>
+                <div class="star-ratings-sprite"><span style="width: <%= firm.reviews.average(:rate).round %>%" class="star-ratings-sprite-rating"></span></div>
+            <% else %>
+        　　　　<div class="indexreview">評価しよう！</div>
+      　　　　<% end %>
+                <div class="detail"><%= link_to '詳細', "/firms/#{firm.id}", method: :get %><br></div>
+        </div>
+    <% end %>
+</div>     
