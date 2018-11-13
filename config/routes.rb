@@ -7,6 +7,6 @@ Rails.application.routes.draw do
      collection do
        get 'search'
      end
-    
    end
+   resources :genres, only: [:index, :show]
 end

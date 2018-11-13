@@ -1,8 +1,10 @@
 class Scraping
-  def self.firm_urls
+  # Scraping.firm_urls(1, 25)
+  # Scraping.firm_urls(26, 50)
+  def self.firm_urls(start_page_num = 1, end_page_num = 25)
     links = []
     agent = Mechanize.new
-    next_url =""
+    next_url ="?page=#{start_page_num}"
     
     while true 
       current_page = agent.get("https://www.onecareer.jp/companies" + next_url)
@@ -15,7 +17,7 @@ class Scraping
       
       next_link = current_page.at('.v2-pagination__next a')
       next_url = next_link.get_attribute('href')
-      break if next_url == "/companies?page=25"
+      break if next_url == "/companies?page=#{end_page_num}"
       next_url.slice!("/companies")
     end
     
