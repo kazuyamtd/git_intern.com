@@ -11,23 +11,25 @@ header{
 .subtitle{
     text-decoration: none; 
 }
-nav {
+.navbar {
     height: 40px;
     background: #2a6fb7;
 }
 nav ul{
     overflow: hidden;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    max-width: 1000px;
+    height: 40px;
+    max-width: 750px;
+    text-align: center;
+    margin: auto;
 }
 nav li{
     box-sizing: border-box;
     float: left;
-    border-right: 1px solid #34589e;
+    border: 1px solid #34589e;
     height: 40px;
-    width: 25%;
+    width: 33.33%;
+    line-height: 40px;
 }
 .logout{
     margin-top: 10px;
