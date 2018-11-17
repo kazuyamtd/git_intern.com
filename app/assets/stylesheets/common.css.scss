@@ -7,6 +7,7 @@ header{
     font-size: 30px;
     padding-top: 200px;
     margin-left: 40px;
+    // color:#0000ff;
 }
 .subtitle{
     text-decoration: none; 
@@ -28,8 +29,12 @@ nav li{
     float: left;
     border: 1px solid #34589e;
     height: 40px;
-    width: 33.33%;
+    width: 50%;
     line-height: 40px;
+}
+nav li a{
+    display: block;
+    color:#ffffff;
 }
 .logout{
     margin-top: 10px;
