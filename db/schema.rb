@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,59 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112084312) do
+ActiveRecord::Schema.define(version: 2018_11_12_084312) do
 
-  create_table "firms", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "industry",    limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "genre_id",    limit: 4
+  create_table "firms", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "name"
+    t.text "image"
+    t.string "industry"
+    t.text "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "image",       limit: 65535
-    t.text     "genre",       limit: 65535
+    t.integer "genre_id"
+    t.text "genre"
   end
 
-  create_table "genres", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "jobs", force: :cascade do |t|
-    t.string   "target",      limit: 255
-    t.string   "type",        limit: 255
-    t.text     "period",      limit: 65535
-    t.string   "place",       limit: 255
-    t.text     "explanation", limit: 65535
-    t.text     "deadline",    limit: 65535
-    t.integer  "firm_id",     limit: 4
+  create_table "genres", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "rate",       limit: 4
-    t.integer  "length",     limit: 4
-    t.text     "test",       limit: 65535
-    t.text     "review",     limit: 65535
-    t.integer  "firm_id",    limit: 4
-    t.integer  "user_id",    limit: 4
+  create_table "jobs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "target"
+    t.string "type"
+    t.text "period"
+    t.string "place"
+    t.text "explanation"
+    t.text "deadline"
+    t.integer "firm_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+  create_table "reviews", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.integer "rate"
+    t.integer "length"
+    t.text "test"
+    t.text "review"
+    t.integer "firm_id"
+    t.integer "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
